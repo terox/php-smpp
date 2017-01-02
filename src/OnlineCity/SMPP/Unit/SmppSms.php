@@ -3,6 +3,7 @@
 namespace OnlineCity\SMPP\Unit;
 
 use OnlineCity\SMPP\Unit\SmppPdu;
+use OnlineCity\SMPP\SmppAddress;
 
 /**
  * Primitive type to represent SMSes
