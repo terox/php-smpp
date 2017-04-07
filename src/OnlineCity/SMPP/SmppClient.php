@@ -33,6 +33,24 @@ use OnlineCity\SMPP\Exception\SmppException;
  */
 class SmppClient
 {
+    /**
+     * Use sar_msg_ref_num and sar_total_segments with 16 bit tags
+     * @var integer
+     */
+    const CSMS_16BIT_TAGS = 0;
+
+    /**
+     * Use message payload for CSMS
+     * @var integer
+     */
+    const CSMS_PAYLOAD = 1;
+
+    /**
+     * Embed a UDH in the message with 8-bit reference.
+     * @var integer
+     */
+    const CSMS_8BIT_UDH = 2;
+
 	// SMPP bind parameters
 	public static $system_type="WWW";
 	public static $interface_version=0x34;
@@ -55,25 +73,7 @@ class SmppClient
 	 * @var boolean
 	 */
 	public static $sms_null_terminate_octetstrings=true;
-	
-	/**
-	 * Use sar_msg_ref_num and sar_total_segments with 16 bit tags
-	 * @var integer
-	 */
-	const CSMS_16BIT_TAGS = 0;
-	
-	/**
-	 * Use message payload for CSMS
-	 * @var integer
-	 */
-	const CSMS_PAYLOAD = 1;
-	
-	/**
-	 * Embed a UDH in the message with 8-bit reference.
-	 * @var integer
-	 */
-	const CSMS_8BIT_UDH = 2;
-	
+
 	public static $csms_method = SmppClient::CSMS_16BIT_TAGS;
 	
 	public $debug;
