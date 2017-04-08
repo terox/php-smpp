@@ -145,11 +145,7 @@ class SmppClient
         ));
 
         $resolver->setAllowedTypes('smsNullTerminateOctetstrings', 'boolean');
-        $resolver->setAllowedTypes('csmsMethod', array(
-            self::CSMS_16BIT_TAGS,
-            self::CSMS_PAYLOAD,
-            self::CSMS_8BIT_UDH
-        ));
+        $resolver->setAllowedTypes('csmsMethod', array('int'));
     }
 
     /**
