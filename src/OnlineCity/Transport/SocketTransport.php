@@ -20,11 +20,10 @@ class SocketTransport
 	protected $hosts;
 	protected $persist;
 	protected $debugHandler;
-	public $debug;
+	protected $debug;
 
 	protected static $defaultSendTimeout=100;
 	protected static $defaultRecvTimeout=750;
-	public static $defaultDebug=false;
 
 	public static $forceIpv6=false;
 	public static $forceIpv4=false;
@@ -33,14 +32,15 @@ class SocketTransport
 	/**
 	 * Construct a new socket for this transport to use.
 	 *
-	 * @param array $hosts list of hosts to try.
-	 * @param mixed $ports list of ports to try, or a single common port
-	 * @param boolean $persist use persistent sockets
-	 * @param mixed $debugHandler callback for debug info
+	 * @param array    $hosts        list of hosts to try.
+	 * @param mixed    $ports        list of ports to try, or a single common port
+	 * @param boolean  $persist      use persistent sockets
+     * @param boolean  $debug        show debug messages
+	 * @param mixed    $debugHandler callback for debug info
 	 */
-	public function __construct(array $hosts,$ports,$persist=false,$debugHandler=null)
+	public function __construct(array $hosts, $ports, $persist = false, $debug = false, $debugHandler = null)
 	{
-		$this->debug = self::$defaultDebug;
+		$this->debug        = $debug;
 		$this->debugHandler = $debugHandler ? $debugHandler : 'error_log';
 		
 		// Deal with optional port

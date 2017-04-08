@@ -19,14 +19,11 @@
     ],
     "require": {
         "php": ">=5.3.0",
-        "ext-sockets": "*"
-    },
-    "require-dev": {
-    },
-    "suggest": {
+        "ext-sockets": "*",
+        "symfony/options-resolver": "^3.2"
     },
     "autoload": {
-        "psr-0": {"OnlineCity": "src/"}
+        "psr-0": { "OnlineCity": "src/" }
     },
     "extra": {
         "branch-alias": {
